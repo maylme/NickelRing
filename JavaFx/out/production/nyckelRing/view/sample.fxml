@@ -37,28 +37,36 @@
             <Label fx:id="indexSlide" text="Label" GridPane.columnIndex="1" />
             <GridPane GridPane.rowIndex="1">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ImageView fitHeight="70.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true" />
-                  <HBox fx:id="toogleButton1" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" />
+                  <ImageView fx:id="cameraLogoImgView" fitHeight="70.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true" />
+                  <ToggleButton fx:id="cameraButton" mnemonicParsing="false" onAction="#handleButtonCameraOnAction" GridPane.columnIndex="1">
+                     <graphic>
+                        <ImageView fx:id="cameraButtonImgView" fitHeight="50.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </ToggleButton>
                </children>
             </GridPane>
             <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
               <columnConstraints>
                 <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ImageView fitHeight="69.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
-                  <HBox fx:id="toggleButton2" prefHeight="100.0" prefWidth="200.0" />
+                  <ImageView fx:id="microLogoImgView" fitHeight="69.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" />
+                  <ToggleButton fx:id="microButton" mnemonicParsing="false" onAction="#handleButtonMicroOnAction" GridPane.columnIndex="1">
+                     <graphic>
+                        <ImageView fx:id="microButtonImgView" fitHeight="50.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </ToggleButton>
                </children>
             </GridPane>
          </children>
@@ -75,7 +83,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="previous" mnemonicParsing="false" onAction="#handleButtonPreviousonAction" onMouseClicked="#handleButtonPreviousonMouseClicked" prefHeight="160.0" prefWidth="110.0" GridPane.rowIndex="1">
+            <Button fx:id="previous" mnemonicParsing="false" onAction="#handleButtonPreviousonAction" prefHeight="160.0" prefWidth="110.0" GridPane.rowIndex="1">
                <graphic>
                   <ImageView fx:id="previousImgView" fitHeight="130.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" />
                </graphic>
@@ -94,9 +102,9 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="next" mnemonicParsing="false" onAction="#handleButtonNextonAction" onMouseClicked="#handleButtonNextonMouseClicked" prefHeight="160.0" prefWidth="110.0" GridPane.rowIndex="1">
+            <Button fx:id="next" mnemonicParsing="false" onAction="#handleButtonNextonAction" prefHeight="160.0" prefWidth="110.0" GridPane.rowIndex="1">
                <graphic>
-                  <ImageView fx:id="nextImgView" fitHeight="130.0" fitWidth="70.0" onMouseDragOver="#handleButtonNextonMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="nextImgView" fitHeight="130.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" />
                </graphic>
             </Button>
          </children>
