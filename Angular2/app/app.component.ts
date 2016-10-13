@@ -51,7 +51,6 @@ import { Component } from '@angular/core';
   .diapo_container {
     height: 70vh;
     width:100%;
-    background:red;
   }
   a{
     height: 100%;
