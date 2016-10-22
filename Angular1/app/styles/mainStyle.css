@@ -1,0 +1,22 @@
+.mainView .fa{
+    font-size: 30px;
+}
+
+.mainView img{
+    border: 2px solid black;
+}
+
+.mainView .navbtn{
+    height: auto;
+}
+
+.mainView .md-fab{
+    margin: 20px;
+    padding: 0px;
+    height: 100px;
+    width: 100px;
+}
+
+.mainView .pagination{
+    font-size: 20px;
+}
