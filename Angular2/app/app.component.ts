@@ -1,50 +1,36 @@
-export class Diapo{
-  index: number;
-  img: string;
-}
-
-const NyckelRing: Diapo[] = [
-  { index: 0, img: '/assets/NyckelRing/page1.png' },
-  { index: 1, img: '/assets/NyckelRing/page2.png' },
-  { index: 2, img: '/assets/NyckelRing/page3.png' },
-  { index: 3, img: '/assets/NyckelRing/page4.png' },
-];
-
 import { Component } from '@angular/core';
+import { Slide } from './slide';
+import { SlideService } from './slide.service';
+import { OnInit } from '@angular/core';
+
 @Component({
   selector: 'my-app',
-  template:`
-    <h1>How to : {{title}}</h1>
+  providers: [SlideService],
+  template: `
+    <h1>How to :{{title}}</h1>
     <div class="container-fluid">
       <div class="diapo_container row">
-        <a class="col-md-2 arrow" (click)="before(selectedDiapo)">
+        <a class="col-md-2 arrow" (click)="before(selectedSlide)">
           <img src="/assets/before.svg"/>
         </a>
         <div class="col-md-8" > 
-          <div class="img_container" *ngIf="selectedDiapo">
-              <img src="{{selectedDiapo.img}}" />
-          </div>  
+            <div class="img_container" *ngIf="selectedSlide">
+              <img src="{{selectedSlide.img}}" />
+            </div>
         </div>
-        <a class="col-md-2 arrow" (click)="after(selectedDiapo)">
+        <a class="col-md-2 arrow" (click)="after(selectedSlide)">
           <img src="/assets/after.svg"/>
         </a>
       </div>
       <div class="row">
-        <div class="col-xs-12 text-center">
-          <h2>{{selectedDiapo.index + 1}}/{{tuto.length}}</h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-
-        </div>
-        <div class="col-md-6">
+        <div class="col-xs-12 text-center" *ngIf="selectedSlide && howto">
+          <h2>{{selectedSlide.index+1}}/{{howto.length}}</h2>
         </div>
       </div>
     </div>
   `,
   styles: [`
-  h1{
+   h1{
     text-align:center;
   }
 
@@ -61,11 +47,12 @@ import { Component } from '@angular/core';
     height: 30%;
     margin: auto; /* eh oui, tout bêtement */
   }
-  .img_container{
+   .img_container{
     border: solid black 3px;
     border-radius: 3px;
     width:100%;
-    height: 100%;
+
+    height:100%;
     line-height: 70vh;
     text-align:center;
   }
@@ -75,27 +62,41 @@ import { Component } from '@angular/core';
     max-height:100%;
     display:inline;
   }
-
-`]
+  `]
 })
-export class AppComponent { 
-  title = 'NyckelRing';
-  tuto = NyckelRing;
-  selectedDiapo= this.tuto[0];
-  after(selectedDiapo: Diapo): void{
-    if (selectedDiapo == undefined){
+export class AppComponent implements OnInit{
+  title = 'NickelRing';
+  selectedSlide: Slide;
+  howto: Slide[];
+  onSelect(slide: Slide): void {
+    this.selectedSlide = slide;
+  };
+after(selectedSlide: Slide): void{
+    if (selectedSlide == undefined){
       var next_index = 0;
     }else{
-      var next_index = ((selectedDiapo.index +1) >= this.tuto.length)? 0: (selectedDiapo.index +1);
+      var next_index = ((selectedSlide.index +1) >= this.howto.length)? 0: (selectedSlide.index +1);
     }
-    this.selectedDiapo = this.tuto[next_index];
+    this.selectedSlide = this.howto[next_index];
   };
-  before(selectedDiapo: Diapo): void{
-    if (selectedDiapo == undefined){
-      var next_index = this.tuto.length - 1;
+  before(selectedSlide: Slide): void{
+    if (selectedSlide == undefined){
+      var next_index = this.howto.length - 1;
     }else{
-      var next_index = ((selectedDiapo.index - 1) < 0)? this.tuto.length - 1: (selectedDiapo.index -1);
+      var next_index = ((selectedSlide.index - 1) < 0)? this.howto.length - 1: (selectedSlide.index -1);
     }
-    this.selectedDiapo = this.tuto[next_index];
+    this.selectedSlide = this.howto[next_index];
+  };
+  constructor(private slideService: SlideService) { };
+
+  getSlides(): void {
+    this.slideService.getSlides().then(slides => {
+      this.howto = slides;
+      this.selectedSlide = slides[0];
+    });
+  };
+
+  ngOnInit(): void {
+    this.getSlides();
   }
 }
