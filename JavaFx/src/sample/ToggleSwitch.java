@@ -1,6 +1,4 @@
-package view;
-
-/**
+package sample; /**
  * Created by ding on 07/10/16.
  */
 import javafx.beans.property.SimpleBooleanProperty;
