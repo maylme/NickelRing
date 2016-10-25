@@ -1,0 +1,7 @@
+.sidenav {
+  vertical-align: top;
+  display: inline-block;
+  width: 200px;
+  background-color: lightblue;
+  height: 100vh;
+}

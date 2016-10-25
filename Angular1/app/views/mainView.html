@@ -1,0 +1,36 @@
+<div class="mainView" layout="column" layout-align="space-around center">
+
+    <md-content layout="row">
+        <md-button class="navbtn md-primary md-raised" aria-label="Previous" ng-click="prevPage()" ng-disabled="currentPage==1">
+            <i class="fa fa-chevron-left"/>
+        </md-button>
+        <img src="/images/nikelRing/page{{currentPage}}.png"/>
+        <md-button class="navbtn md-primary md-raised" aria-label="Next" ng-click="nextPage()" ng-disabled="currentPage==maxImage">
+            <i class="fa fa-chevron-right"/>
+        </md-button>
+
+    </md-content>
+
+    <md-content layout="row">
+        <div class="pagination">{{currentPage}} / {{maxImage}}</div>
+    </md-content>
+
+    <md-content layout="row" id="optionLayout">
+
+        <md-button class="md-fab md-primary" aria-label="Mic" ng-click="toggleMic()" ng-show="micBtn">
+            <i class="fa fa-microphone" aria-hidden="true"></i>
+        </md-button>
+        <md-button class="md-fab md-warn" aria-label="Mic" ng-click="toggleMic()" ng-show="!micBtn">
+            <i class="fa fa-microphone-slash" aria-hidden="true"></i> 
+        </md-button>
+
+        <md-button class="md-fab md-primary" aria-label="Cam" ng-click="toggleCam()" ng-show="camBtn">
+            <i class="fa fa-eye" aria-hidden="true"></i>
+        </md-button>
+        <md-button class="md-fab md-warn" aria-label="Cam" ng-click="toggleCam()" ng-show="!camBtn">
+            <i class="fa fa-eye-slash" aria-hidden="true"></i>
+        </md-button>
+
+    </md-content>
+
+</div>

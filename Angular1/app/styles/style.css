@@ -1,0 +1,367 @@
+/**
+* General style ****************************************************************************
+*/
+
+/* base font-size corresponds to 10px and is adapted to rem unit */
+html {
+    font-size: 62.5%;
+}
+body {
+    background-color: #fff;
+    color: #000;
+    font-family: "Century Gothic", helvetica, arial, sans-serif;
+    font-size: 1.4em; /* equiv 14px */
+    line-height: 1.5; /* adapt to your design */
+}
+
+/* font-sizing for content */
+/* preserve vertical-rythm, thanks to http://soqr.fr/vertical-rhythm/ */
+p,
+ul,
+ol,
+dl,
+blockquote,
+pre,
+td,
+th,
+label,
+textarea,
+caption,
+details, 
+figure, 
+hgroup {
+    font-size: 1em; /* equiv 14px */
+    line-height: 1.5;
+    margin: 1.5em 0 0;
+}
+h1, .h1-like {
+    font-size: 1.8571em; /* equiv 26px */
+    font-weight: normal;
+    line-height: 1.6154em;
+    margin: .8077em 0 .8077em 0;
+}
+h2, .h2-like {
+    font-size: 1.7143em; /* equiv 24px */
+    font-weight: normal;
+    line-height: 1.75em;
+    margin: .875em 0 0 0;
+}
+h3, .h3-like {
+    font-size: 1.5714em; /* equiv 22px */
+    font-weight: normal;
+    line-height: 1.909em;
+    margin: .9545em 0 0 0;
+}
+h4, .h4-like {
+    font-size: 1.4286em; /* equiv 20px */
+    font-weight: normal;
+    line-height: 1.05em;
+    margin:  1.05em 0 0 0;
+}
+h5, .h5-like {
+    font-size: 1.2857em; /* equiv 18px */
+    font-weight: normal;
+    line-height: 1.1667em;
+    margin:  1.1667em 0 0 0;
+}
+h6, .h6-like {
+    font-size: 1.1429em; /* equiv 16px */
+    font-weight: normal;
+    line-height: 1.3125em;
+    margin:  1.3125em 0 0 0;
+}
+
+/* alternate font-sizing */
+.smaller {
+    font-size: .7143em; /* equiv 10px */
+    line-height: 2.1em;
+}
+.small {
+    font-size: .8571em; /* equiv 12px */
+    line-height: 1.75em;
+}
+.big {
+    font-size: 1.1429em; /* equiv 16px */
+    line-height: 1.3125em;
+}
+.bigger {
+    font-size: 1.2857em; /* equiv 18px */
+    line-height: 1.1667em;
+}
+.biggest {
+    font-size: 1.4286em; /* equiv 20px */
+    line-height: 1.05em;
+}
+
+/* soft reset */
+html,
+body,
+textarea,
+figure,
+label {
+    margin: 0;
+    padding: 0;
+}
+ul,
+ol {
+    padding-left: 2em;
+}
+code, 
+pre,
+samp {
+    white-space: pre-wrap;
+    font-family: consolas, 'DejaVu Sans Mono', courier, monospace;
+}
+code { line-height: 1em; }
+table { margin-bottom: 1.5em; }
+
+/* avoid top margins on first content element */
+p:first-child,
+ul:first-child,
+ol:first-child,
+dl:first-child,
+blockquote:first-child,
+pre:first-child,
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+    margin-top: 0;
+}
+
+/* avoid margins on nested elements */
+li p,
+li ul,
+li ol {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* HTML5 tags */
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+    display: block;
+}
+
+/* max values */
+img, table, td, blockquote, code, pre, textarea, input, video {
+    max-width: 100%;
+}
+
+/* you shall not pass */
+div, textarea, table, td, th, code, pre, samp {
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -o-hyphens: auto;
+    hyphens: auto;
+}
+
+/* pictures */
+img {
+    width: auto;
+    height: auto;
+    vertical-align: middle;
+}
+a img { border: 0; }
+
+/* scripts */
+body > script {display: none !important;}
+
+/* skip-links */
+.skip-links {
+    position: absolute;
+}
+.skip-links a {
+    position: absolute;
+    left: -9999px;
+    padding: 0.5em;
+    background: #000;
+    color:#fff;
+    text-decoration: none;
+}
+.skip-links a:focus {
+    position: static;
+}
+
+
+
+/**
+* **************************************************************************************************
+*
+* **************************************************************************************************
+*/
+
+
+
+/**
+* dynamic called styles ****************************************************************************
+*/
+
+.invalideField {
+    color: #ff0000;
+}
+
+.invalideField ~ .marg-lat {
+    color: #ff0000;
+}
+
+.valideField {
+
+}
+
+
+/**
+* ngShow/Hide animate ****************************************************************************
+*/
+
+.ng-hide-add, .ng-hide-remove {
+    display: block !important;
+}
+
+.cssSlideUp {
+    transition: .5s linear all;
+    height: 100%;
+    overflow: hidden;
+}
+.cssSlideUp.ng-hide {
+    height:0%;
+}
+
+.cssFade {
+    transition: 0.5s linear all;
+    opacity: 1;
+}
+.cssFade.ng-hide {
+    opacity: 0;
+}
+
+/**
+* Table ****************************************************************************
+*/
+
+table, th , td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 0px 5px 0px 5px;
+    text-align: center;
+}
+
+
+table tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+table tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+
+/**
+* Listes ****************************************************************************
+*/
+
+li, th , td {
+    margin: 5px;
+}
+
+/**
+* Text Editor ****************************************************************************
+*/
+
+.ta-hidden-input{
+    display: none;
+}
+
+.ta-toolbar, .btn-toolbar{
+    background-color: #f2f2f2;
+}
+
+.btn-group{
+    padding: 5px;
+}
+
+.btn, .btn-default{
+
+}
+
+.btn-toolbar .btn-group:first-child{
+    display: inline-block;
+}
+
+.btn-toolbar .btn-group:nth-child(2){
+    display: inline-block;
+}
+
+.btn-toolbar .btn-group:nth-child(3){
+    display: inline-block;
+}
+
+.btn-toolbar .btn-group:last-child{
+    display: inline-block;
+}
+
+#toolbarWC, #toolbarCC{
+    padding: 3px 0px 3px 10px;
+    margin: 0px 5px 0px 5px;
+    border: 1px gray solid;
+    border-radius: 3px;
+    display: inline-block !important;
+}
+
+.ta-text, .ta-editor{
+    background-color: white;
+    margin: 0px;
+}
+
+.ta-bind{
+    margin: 10px;
+    min-height: 200px;
+}
+
+
+
+/**
+* Formulaires ****************************************************************************
+*/
+
+input{
+    margin: 10px;
+}
+
+.marg-lat {
+    margin: 0px 10px 0px 10px;
+}
+
+.padd-lat {
+    margin: 0px 5px 0px 5px;
+}
+
+#requestFormDynamicBody{
+    border: solid 1px rgb(63,81,181);
+    border-radius: 0px 0px 10px 10px;
+    margin: 0px 30px 0px 30px;
+}
+
+/**
+* page responsible ****************************************************************************
+*/
+
+.backgroundColorWhite {
+    background-color: #ffffff;
+}
+.backgroundColorGrey {
+    background-color: #c1c1c1;
+}
+.bold {
+    color: green;  
+    font-weight: bold;
+    font-size: 16px;
+}
+.boldY {
+    color: white;  
+    background-color: green;  
+    font-weight: bold;
+    font-size: 16px;
+}
