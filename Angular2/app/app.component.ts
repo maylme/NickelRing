@@ -20,7 +20,6 @@ export class AppComponent implements OnInit{
     this.selectedSlide = slide;
   };
   after(): void{
-    console.log("after", this.selectedSlide);
     if (this.selectedSlide == undefined){
       var next_index = 0;
     }else{
@@ -57,7 +56,7 @@ export class AppComponent implements OnInit{
     if (annyang) {
       if(this.mic_is_on){
           var commands = {
-              'before': ()=>{ 
+              'previous': ()=>{ 
                 this.before();
               },
               'next': ()=>{
