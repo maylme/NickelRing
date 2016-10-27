@@ -8,15 +8,37 @@ export default React.createClass({
   getInitialState(){
     return {
       currentPage: 1,
-      maxPage: 4
+      maxPage: 4,
+      motionDetection: false
     }
   },
 
   componentDidMount() {
     this.subscription = SliderStore.data$.subscribe((data) => {
-      this.setState({
-        currentPage: data.currentPage
-      })
+      if(typeof data.motionDetection != "undefined"){
+        this.setState({
+          motionDetection: data.motionDetection
+        });
+      }
+
+      switch (data.action) {
+        case "prev":
+          if (this.state.currentPage > 1 && this.state.motionDetection) {
+            this.setState({
+              currentPage: this.state.currentPage - 1
+            });
+          }
+          break;
+        case "next":
+          if (this.state.currentPage < this.state.maxPage && this.state.motionDetection) {
+            this.setState({
+              currentPage: this.state.currentPage + 1
+            });
+          }
+          break;
+        default:
+          break;
+      }
     });
   },
 
@@ -26,7 +48,7 @@ export default React.createClass({
 
 
   _nextPage(){
-    if(this.state.currentPage < this.state.maxPage) {
+    if (this.state.currentPage < this.state.maxPage) {
       this.setState({
         currentPage: this.state.currentPage + 1
       });
@@ -35,12 +57,16 @@ export default React.createClass({
   },
 
   _prevPage(){
-    if(this.state.currentPage > 1) {
+    if (this.state.currentPage > 1) {
       this.setState({
         currentPage: this.state.currentPage - 1
       });
       SliderStore.prevSlide();
     }
+  },
+
+  _enableDisable(){
+    SliderStore.motionDetection();
   },
 
   render() {
@@ -49,14 +75,14 @@ export default React.createClass({
         <div className={styles.imageContainer}>
           <i className="fa fa-chevron-left" aria-hidden="true" onClick={this._prevPage}/>
           <img className={styles.image} src={require("../../assets/page" + this.state.currentPage + ".png")} alt=""/>
-          <i className="fa fa-chevron-right" aria-hidden="true" onClick={this._nextPage}/>
+          <i className="fa fa-chevron-right" aria-hidden="true" onClick={this._nextPage}/><br/>
+          <span style={{fontSize: "14px"}}>{this.state.currentPage + " / " + this.state.maxPage}</span>
           <div>
             <label className={styles.switch}>
-              <input type="checkbox"/>
+              <input type="checkbox" onChange={() => {this._enableDisable()}}/>
               <div className={styles.slider}></div>
-            </label>
+            </label><span style={{fontSize: "18px", lineHeight:"35px", verticalAlign:"top"}}> Motion detection</span>
           </div>
-
 
         </div>
       </div>

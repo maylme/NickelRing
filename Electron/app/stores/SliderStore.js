@@ -2,24 +2,25 @@ import BaseStore from "../services/BaseStore"
 
 function SliderStore() {
     const service = BaseStore({
-      currentPage: 1,
-      maxPage: 4
+      action: "",
+      motionDetection: false
     });
 
     service.nextSlide = function () {
-      if(this.data.currentPage < this.data.maxPage){
-        this.data = {
-          currentPage: this.data.currentPage + 1
-        }
+      this.data = {
+        action: "next"
       }
-
     };
 
     service.prevSlide = function () {
-      if(this.data.currentPage > 1){
-        this.data = {
-          currentPage: this.data.currentPage - 1
-        }
+      this.data = {
+        action: "prev"
+      }
+    };
+
+    service.motionDetection = function(){
+      this.data = {
+        motionDetection: !this.data.motionDetection
       }
     };
 
