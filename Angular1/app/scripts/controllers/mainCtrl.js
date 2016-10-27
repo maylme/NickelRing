@@ -7,30 +7,36 @@ function mainCtrl($rootScope, $scope){
     $scope.camBtn = false;
     $scope.micBtn = false;
 
+    //go back to previous page
     $scope.prevPage = function(){
-        console.log("previous");
+        //test if the current page is not the first
         if($scope.currentPage > 1){
             $scope.currentPage--;
         }
     }
 
+    //switch to next page
     $scope.nextPage = function(){
-        console.log("next");
+        //test if the current page is not the last one
         if($scope.currentPage < $scope.maxImage){
             $scope.currentPage++;
         }
     }
 
     $scope.toggleMic = function(){
+        //toggle the var
         $scope.micBtn = !$scope.micBtn;
-        //window.alert("the audio interaction is not yet implemented");
+        //if annyang lib correctly imported
         if (annyang) {
+            //if micro activate
             if($scope.micBtn){
+                //define some commands
                 var commands = {
-                    'back': function() { $scope.$apply($scope.prevPage()); },
+                    'previous': function() { $scope.$apply($scope.prevPage()); },
                     'next': function() { $scope.$apply($scope.nextPage()); },
                     'help': function() { alert("say 'next' or 'previous' to navigate"); }
                 };
+                //add the command and activate the micro
                 annyang.addCommands(commands);
                 annyang.start();
             } else {
