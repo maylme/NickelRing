@@ -2,13 +2,17 @@ import BaseStore from "../services/BaseStore"
 
 function SliderStore() {
     const service = BaseStore({
-      currentPage: 0
+      currentPage: 1,
+      maxPage: 4
     });
 
     service.nextSlide = function () {
+      if(this.data.currentPage < this.data.maxPage){
         this.data = {
           currentPage: this.data.currentPage + 1
         }
+      }
+
     };
 
     service.prevSlide = function () {
