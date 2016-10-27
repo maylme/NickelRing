@@ -26,5 +26,11 @@ export default React.createClass({
   },
 
   render() {
+    return (
+      <div>
+        <MotionDetector left={this._left} right={this._right}/>
+        <Slider/>
+      </div>
+    );
   }
 })
