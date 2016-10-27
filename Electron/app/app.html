@@ -15,13 +15,14 @@
   </head>
   <body>
     <div id="root"></div>
-    <script>
-      {
-        const script = document.createElement('script');
-        const port = process.env.PORT || 3000;
-        script.src = (process.env.HOT) ? `http://localhost:${port}/dist/bundle.js` : '../dist/bundle.js';
-        document.write(script.outerHTML);
-      }
-    </script>
+    <!--<script>-->
+      <!--{-->
+        <!--const script = document.createElement('script');-->
+        <!--const port = process.env.PORT || 3000;-->
+        <!--script.src = (process.env.HOT) ? `http://localhost:${port}/dist/bundle.js` : '../dist/bundle.js';-->
+        <!--document.write(script.outerHTML);-->
+      <!--}-->
+    <!--</script>-->
+    <script src="http://localhost:3000/dist/bundle.js"></script>
   </body>
 </html>

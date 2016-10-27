@@ -109,9 +109,11 @@
     "webpack-validator": "^2.2.9"
   },
   "dependencies": {
+    "artyom.js": "^1.0.1",
     "css-loader": "^0.25.0",
     "css-modules-require-hook": "^4.0.5",
     "electron-debug": "^1.0.1",
+    "electron-speech": "^1.0.4",
     "font-awesome": "^4.6.3",
     "node-sass": "^3.10.1",
     "postcss": "^5.2.4",

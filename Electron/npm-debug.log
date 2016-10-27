@@ -7,7 +7,7 @@
 6 silly lifecycle electron-react-boilerplate@0.10.0~predev: no script for predev, continuing
 7 info lifecycle electron-react-boilerplate@0.10.0~dev: electron-react-boilerplate@0.10.0
 8 verbose lifecycle electron-react-boilerplate@0.10.0~dev: unsafe-perm in lifecycle true
-9 verbose lifecycle electron-react-boilerplate@0.10.0~dev: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/var/www/html/Polytech/NickelRing/Electron/node_modules/.bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/anthony/Android/Sdk/tools
+9 verbose lifecycle electron-react-boilerplate@0.10.0~dev: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/var/www/html/Polytech/NickelRing/Electron/node_modules/.bin:/usr/local/bin:/home/anthony/Applications/google-cloud/google-cloud-sdk/bin:/home/anthony/Applications/google-cloud/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin:/snap/bin:/home/anthony/Android/Sdk/tools:/usr/local/go/bin:/home/anthony/Applications/google-cloud/google-cloud-sdk/bin:/usr/local/go/bin
 10 verbose lifecycle electron-react-boilerplate@0.10.0~dev: CWD: /var/www/html/Polytech/NickelRing/Electron
 11 silly lifecycle electron-react-boilerplate@0.10.0~dev: Args: [ '-c',
 11 silly lifecycle   'concurrently --kill-others "npm run hot-server" "npm run start-hot"' ]

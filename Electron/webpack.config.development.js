@@ -13,7 +13,7 @@ const port = process.env.PORT || 3000;
 export default validate(merge(baseConfig, {
   debug: true,
 
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
 
   entry: [
     `webpack-hot-middleware/client?path=http://localhost:${port}/__webpack_hmr`,
@@ -26,7 +26,6 @@ export default validate(merge(baseConfig, {
   },
 
   module: {
-    preLoaders: [ ],
     loaders: [
       {
         test: /\.(png|jpg|)$/,

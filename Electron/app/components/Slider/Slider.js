@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-
-import styles from "./View.css";
+import SliderStore from "../../stores/SliderStore";
+import styles from "./Slider.css";
 
 export default React.createClass({
-
   getInitialState(){
     return {
       currentPage: 1,
@@ -11,24 +10,25 @@ export default React.createClass({
     }
   },
 
-  componentDidMount(){
-
+  componentDidMount() {
+    this.subscription = SliderStore.data$.subscribe((data) => {
+      this.setState({
+        currentPage: data.currentPage
+      })
+    });
   },
 
+  componentWillUnmount() {
+    this.subscription.dispose();
+  },
+
+
   _nextPage(){
-    if(this.state.currentPage < this.state.maxPage){
-      this.setState({
-        currentPage: ++this.state.currentPage
-      })
-    }
+    SliderStore.nextSlide();
   },
 
   _prevPage(){
-    if(this.state.currentPage > 1){
-      this.setState({
-        currentPage: --this.state.currentPage
-      })
-    }
+    SliderStore.prevSlide();
   },
 
   render() {
