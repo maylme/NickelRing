@@ -1,0 +1,44 @@
+<h1>How to :{{title}}</h1>
+<div class="container-fluid">
+  <div class="diapo_container row">
+    <a class="col-md-2 arrow hidden-sm hidden-xs before" (click)="before()">
+      <img src="/assets/before.svg"/>
+      <span [class.hidden]="mic_is_on === false">
+        precedant
+      </span>
+    </a>
+    <div class="col-md-8" > 
+        <div class="img_container" *ngIf="selectedSlide">
+          <img [src]="selectedSlide.img" />
+        </div>
+    </div>
+    <a class="col-md-2 arrow hidden-sm hidden-xs after" (click)="after()">
+      <img src="/assets/after.svg"/>
+      <span [class.hidden]="mic_is_on === false">
+        suivant
+      </span>
+    </a>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 text-center" *ngIf="selectedSlide && howto">
+      <h2>{{selectedSlide.index+1}}/{{howto.length}}</h2>
+    </div>
+  </div>
+  <div class="row hidden-md hidden-lg text-left">
+  <a class="col-xs-2 arrow-xs " (click)="before()">
+      <img src="/assets/before.svg"/>
+  </a>
+  <a class="col-xs-2 arrow-xs col-xs-offset-8 text-right" (click)="after()">
+      <img src="/assets/after.svg"/>
+  </a>
+  </div>
+  <div class="row button text-center">
+    <span>
+      <i [class.fa-microphone-slash]="mic_is_on === false" 
+      [class.fa-microphone]="mic_is_on === true"
+      class="fa" aria-hidden="true"
+      (click)="toogleMic()">
+      </i>
+    </span>
+  </div>
+</div>
